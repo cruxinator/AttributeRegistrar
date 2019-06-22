@@ -12,18 +12,18 @@ class HasAttributeRegistrarTest extends TestCase
 
     public function testGetSetAttribute1()
     {
-          $model = new TestModel();
-          $model->unknownAttribute = "test";
-          $this->assertSame("test", $model->unknownAttribute);
-          $model->reverse1 = "abc";
-          $this->assertSame("cba", $model->reverse1);
+        $model = new TestModel();
+        $model->unknownAttribute = "test";
+        $this->assertSame("test", $model->unknownAttribute);
+        $model->reverse1 = "abc";
+        $this->assertSame("cba", $model->reverse1);
 
-          $model->reverseAndHalf = "abcd";
-          $allAttributes = $model->getAttributes();
-          $this->assertSame("dcba", $allAttributes["reverseAndHalf"]);
-          $this->assertSame("dc", $model->reverseAndHalf);
+        $model->reverseAndHalf = "abcd";
+        $allAttributes = $model->getAttributes();
+        $this->assertSame("dcba", $allAttributes["reverseAndHalf"]);
+        $this->assertSame("dc", $model->reverseAndHalf);
         $model->half1 = "abcd";
-          $this->assertSame("ab", $model->half1);
+        $this->assertSame("ab", $model->half1);
 
         $model->doubleDown1 = 4;
         $this->assertSame(2, $model->doubleDown1);

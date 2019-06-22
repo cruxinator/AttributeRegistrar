@@ -17,16 +17,16 @@ trait HasAttributeRegistrar
     private static $_setAttributeMethods = [];
     public static function bootHasAttributeRegistrar()
     {
-        $class = static::class;
+        $class = self::class;
         foreach (class_uses_recursive($class) as $trait) {
             $getMethod = 'getAttribute' . class_basename($trait);
             $setMethod = 'setAttribute' . class_basename($trait);
             if (method_exists($class, $getMethod)) {
-                static::$_getAttributeMethods[] = $getMethod;
+                self::$_getAttributeMethods[] = $getMethod;
 
             }
             if (method_exists($class, $setMethod)) {
-                static::$_setAttributeMethods[] = $setMethod;
+                self::$_setAttributeMethods[] = $setMethod;
             }
         }
 
@@ -39,9 +39,9 @@ trait HasAttributeRegistrar
      */
     public function getAttribute($key)
     {
-        foreach(static::$_getAttributeMethods as $attributeGetter){
+        foreach (static::$_getAttributeMethods as $attributeGetter) {
             $value = $this->$attributeGetter($key);
-            if($value !== null){
+            if ($value !== null) {
                 return $value;
             }
         }
@@ -56,8 +56,8 @@ trait HasAttributeRegistrar
      */
     public function setAttribute($key, $value)
     {
-        foreach(static::$_setAttributeMethods as $attributeSetter) {
-            if($this->$attributeSetter($key, $value)){
+        foreach (static::$_setAttributeMethods as $attributeSetter) {
+            if ($this->$attributeSetter($key, $value)) {
                 return $this;
             }
         }
