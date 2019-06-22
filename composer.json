@@ -1,0 +1,39 @@
+{
+    "name": "cruxinator/AttributeRegistrar",
+    "description": "Provides support for mutiple overrides of Laravels get and set attribute",
+    "license": "proprietary",
+    "type": "library",
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/database": "5.*"
+    },
+   "require-dev": {
+        "orchestra/testbench": "3.*",
+        "mockery/mockery": "~1.0",
+        "nunomaduro/larastan": "0.3.*",
+        "phpunit/phpunit": "^7.0|^8.0"
+   },
+    "authors": [
+        {
+            "name": "Chris Harris",
+            "email": "c.harris@communicationinnovations.com.au"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cruxinator\\AttributeRegistrar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+      "classmap": [
+      ],
+        "psr-4": {
+            "Cruxinator\\AttributeRegistrar\\Tests\\": "tests/"
+        }
+    },
+
+   "minimum-stability": "dev",
+   "prefer-stable": true
+
+}
+
