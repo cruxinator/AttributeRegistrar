@@ -39,7 +39,7 @@ trait HasAttributeRegistrar
      */
     public function getAttribute($key)
     {
-        foreach (static::$_getAttributeMethods as $attributeGetter) {
+        foreach (self::$_getAttributeMethods as $attributeGetter) {
             $value = $this->$attributeGetter($key);
             if ($value !== null) {
                 return $value;
@@ -56,7 +56,7 @@ trait HasAttributeRegistrar
      */
     public function setAttribute($key, $value)
     {
-        foreach (static::$_setAttributeMethods as $attributeSetter) {
+        foreach (self::$_setAttributeMethods as $attributeSetter) {
             if ($this->$attributeSetter($key, $value)) {
                 return $this;
             }
